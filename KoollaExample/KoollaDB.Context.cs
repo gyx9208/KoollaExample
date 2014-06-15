@@ -25,8 +25,8 @@ namespace KoollaExample
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<users> users { get; set; }
         public DbSet<customer> customer { get; set; }
         public DbSet<deal> deal { get; set; }
+        public DbSet<users> users { get; set; }
     }
 }

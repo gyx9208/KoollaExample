@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="43e1bf9aa4134fc686ee75355071660f" Name="关系图1">
-        <EntityTypeShape EntityType="koollaexampleModel.users" Width="1.5" PointX="1" PointY="0.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="koollaexampleModel.customer" Width="1.5" PointX="3.5" PointY="0.5" />
-        <EntityTypeShape EntityType="koollaexampleModel.deal" Width="1.5" PointX="5.75" PointY="0.625" />
-        <AssociationConnector Association="koollaexampleModel.cid" />
-        <AssociationConnector Association="koollaexampleModel.uid" />
+      <Diagram DiagramId="124a6eac11c34a47bcab92f978514578" Name="关系图1">
+        <EntityTypeShape EntityType="KoollaExample.customer" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoollaExample.deal" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoollaExample.users" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="KoollaExample.cid" ManuallyRouted="false" />
+        <AssociationConnector Association="KoollaExample.uid" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
