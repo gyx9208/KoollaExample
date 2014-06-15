@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "SellMore Index";
+}
+@section head{
+    <link href="~/Content/SellMore.css" rel="stylesheet" />
+}
+@section navbar{
+<li>
+    @Html.ActionLink("主页", "Index","Home")
+</li>
+<li class="active">
+    @Html.ActionLink("脉多", "Index","SellMore")
+</li>
+<li>@Html.ActionLink("人脉", "Customer","SellMore")</li>
+<li>@Html.ActionLink("群发", "GroupMail","SellMore")</li>
+<li>@Html.ActionLink("统计", "Dashboard","SellMore")</li>
+}
+<h1>SellMore Index...Coming Soon...</h1>

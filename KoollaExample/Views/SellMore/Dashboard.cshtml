@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+}
+@section head{
+    <link href="~/Content/SellMore.css" rel="stylesheet" />
+
+    <script src="~/Content/highCharts/highcharts.js"></script>
+    <script src="~/Content/highCharts/exporting.js"></script>
+    <script src="~/Content/highCharts/funnel.js"></script>
+    <script src="~/Scripts/sellmoredashboard.js"></script>
+
+}
+@section navbar{
+<li>
+    @Html.ActionLink("主页", "Index","Home")
+</li>
+<li>
+    @Html.ActionLink("脉多", "Index","SellMore")
+</li>
+<li>@Html.ActionLink("人脉", "Customer","SellMore")</li>
+<li>@Html.ActionLink("群发", "GroupMail","SellMore")</li>
+<li class="active">@Html.ActionLink("统计", "Dashboard","SellMore")</li>
+}
+<div class="Sellmore-Container">
+    <h1>统计</h1>
+    本月进账 @ViewBag.monthIn 元，开户 @ViewBag.monthOpen 元，资产到账率 @ViewBag.rate %，进账 @ViewBag.monthInP 人次，开户 @ViewBag.monthOpenP 人次，资产到账率 @ViewBag.rate2 %，平均每单 @ViewBag.average 元。
+    <hr></hr>
+    <div class="btn-group">
+        <button class="btn btn-default" id="weeksell">本周业绩</button>
+        <button class="btn btn-default" id="monthmoney">本月销售金额</button>
+        <button class="btn btn-default" id="monthcount">本月销售数量</button>
+        <button class="btn btn-default" id="sellfilter">销售漏斗</button>
+        <button class="btn btn-default" id="routeanalyse">渠道分析</button>
+        <button class="btn btn-default" id="lossreason">流失原因</button>
+    </div>
+
+    <div id="dashboard">
+
+    </div>
+</div>
+

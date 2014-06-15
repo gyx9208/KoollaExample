@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "CustomerNote";
+}
+@section head{
+    <link href="~/Content/SellMore.css" rel="stylesheet" />
+
+}
+@section navbar{
+<li>
+    @Html.ActionLink("主页", "Index","Home")
+</li>
+<li>
+    @Html.ActionLink("脉多", "Index","SellMore")
+</li>
+<li>@Html.ActionLink("人脉", "Customer","SellMore")</li>
+<li class="active"><a href="/SellMore/CustomerNote/@ViewBag.Cid">@ViewBag.Name</a></li>
+<li>@Html.ActionLink("群发", "GroupMail","SellMore")</li>
+<li>@Html.ActionLink("统计", "Dashboard","SellMore")</li>
+}
+
+<div class="Sellmore-Container">
+    <div class="head">
+        <h1>@ViewBag.Name</h1>
+        @ViewBag.StatusName, 金额 @ViewBag.Money, @ViewBag.ProductName, @ViewBag.ChannelName, 电话 @ViewBag.Phone, 电子邮件 @ViewBag.Email 
+    </div>
+    <hr />
+    <h1>Note...Coming Soon...</h1>
+</div>
+

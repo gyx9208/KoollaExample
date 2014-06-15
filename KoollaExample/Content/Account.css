@@ -1,0 +1,53 @@
+﻿.main {
+    margin-top:20px;
+    margin-left:80px;
+    margin-right:80px;
+    white-space:nowrap;
+    font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif,Times;
+}
+
+.form-text {
+    font-size:20px; 
+}
+
+.col-md-8 h1 {
+    font-size: 25px;
+    color: #333;
+    margin-left:155px;
+    line-height:40px;
+}
+
+.col-md-8 input {
+    font-size:20px;
+    width:250px;
+    left:150px;
+    position:absolute;
+}
+.col-md-8 .form-a {
+    font-size:16px;
+    margin-left:135px;
+}
+.col-md-8 .submit {
+    width:250px;
+    margin-top:10px;
+    margin-left:135px;
+}
+.col-md-8 #form-res {
+    width:200px;
+    height:22px;
+    line-height:22px;
+    margin:10px 0 0 0;
+    padding:0 0 0 10px;
+    margin-left:135px;
+    display:none;
+}
+.col-md-8 {
+    margin-top:30px;
+}
+.col-md-4 {
+    font-size:15px;
+    margin-top:48px;
+    line-height:35px;
+}
+
+

@@ -1,0 +1,16 @@
+﻿.Sellmore-Container {
+    margin:auto 80px;
+}
+
+h1 {
+    font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif,Times;
+}
+    .Sellmore-Container hr {
+        margin-top:10px;
+        margin-bottom:10px;
+    }
+
+#dashboard {
+    max-width:800px;
+    padding-top:20px;
+}

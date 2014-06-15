@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Signup";
+}
+@section head{
+    <link href="~/Content/Account.css" rel="stylesheet"/>
+    <script src="~/Scripts/Account/signup.js"></script>
+}
+
+@section navbar{
+<li>
+    @Html.ActionLink("主页", "Index","Home")
+</li>
+<li class="active">
+    @Html.ActionLink("注册", "Signup","Account")
+</li>
+}
+
+<div class="main">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>注册Koolla账号</h1>
+            <span class="form-text">账号</span>
+            <input id="account" type="email"/>
+            <div class="clearfix"></div>
+            <br />
+            <span class="form-text">密码</span>
+            <input id="password" type="password" />
+            <div class="clearfix"></div>
+            <br />
+            <span class="form-text">再次输入密码</span>
+            <input id="password2" type="password" />
+            <div class="clearfix"></div>
+            <br />
+            <a class="form-a" href="/Account/Userlicence">《用户协议》</a>
+            <br />
+            <a class="btn btn-success btn-lg submit" role="button" id="signup-submit">提交</a>
+            <div class="clearfix"></div>
+            <div id="form-res" class="alert alert-danger">
+                <span class="glyphicon glyphicon-remove-circle"></span>
+                <span class="error"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            或者使用其他方式登入：
+            <br />
+            <div class="btn-group">
+                <button type="button" class="btn btn-success" id="qq">腾讯QQ</button>
+                <button type="button" class="btn btn-success" id="weibo">新浪微博</button>
+            </div>
+            <br />
+            已经有Koolla账号？
+            <br />
+            <a href="/Account/Login" class="btn btn-info">立即登入</a>
+        </div>
+    </div>
+</div>
+

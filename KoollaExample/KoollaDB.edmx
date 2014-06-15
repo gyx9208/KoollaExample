@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="koollaexampleModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="koollaexampleModelStoreContainer">
+          <EntitySet Name="customer" EntityType="koollaexampleModel.Store.customer" store:Type="Tables" Schema="koollaexample" />
+          <EntitySet Name="deal" EntityType="koollaexampleModel.Store.deal" store:Type="Tables" Schema="koollaexample" />
+          <EntitySet Name="users" EntityType="koollaexampleModel.Store.users" store:Type="Tables" Schema="koollaexample" />
+          <AssociationSet Name="cid" Association="koollaexampleModel.Store.cid">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="deal" EntitySet="deal" />
+          </AssociationSet>
+          <AssociationSet Name="uid" Association="koollaexampleModel.Store.uid">
+            <End Role="users" EntitySet="users" />
+            <End Role="customer" EntitySet="customer" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="company" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="phone" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="email" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="channel" Type="int" Nullable="false" />
+          <Property Name="product" Type="int" Nullable="false" />
+          <Property Name="money" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="deal">
+          <Key>
+            <PropertyRef Name="did" />
+          </Key>
+          <Property Name="did" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="password" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <Association Name="cid">
+          <End Role="customer" Type="koollaexampleModel.Store.customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="deal" Type="koollaexampleModel.Store.deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="deal">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="uid">
+          <End Role="users" Type="koollaexampleModel.Store.users" Multiplicity="1" />
+          <End Role="customer" Type="koollaexampleModel.Store.customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="koollaexampleModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="koollaexampleEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="users" EntityType="koollaexampleModel.users" />
+          <EntitySet Name="customer" EntityType="koollaexampleModel.customer" />
+          <EntitySet Name="deal" EntityType="koollaexampleModel.deal" />
+          <AssociationSet Name="cid" Association="koollaexampleModel.cid">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="deal" EntitySet="deal" />
+          </AssociationSet>
+          <AssociationSet Name="uid" Association="koollaexampleModel.uid">
+            <End Role="users" EntitySet="users" />
+            <End Role="customer" EntitySet="customer" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="customer" Relationship="koollaexampleModel.uid" FromRole="users" ToRole="customer" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Type="Int32" Name="cid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="uid" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="company" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="phone" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="channel" Nullable="false" />
+          <Property Type="Int32" Name="product" Nullable="false" />
+          <Property Type="Int32" Name="money" Nullable="false" />
+          <NavigationProperty Name="deal" Relationship="koollaexampleModel.cid" FromRole="customer" ToRole="deal" />
+          <NavigationProperty Name="users" Relationship="koollaexampleModel.uid" FromRole="customer" ToRole="users" />
+        </EntityType>
+        <EntityType Name="deal">
+          <Key>
+            <PropertyRef Name="did" />
+          </Key>
+          <Property Type="Int32" Name="did" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="cid" Nullable="false" />
+          <Property Type="Int32" Name="status" Nullable="false" />
+          <Property Type="DateTime" Name="date" Nullable="false" />
+          <NavigationProperty Name="customer" Relationship="koollaexampleModel.cid" FromRole="deal" ToRole="customer" />
+        </EntityType>
+        <Association Name="cid">
+          <End Type="koollaexampleModel.customer" Role="customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="koollaexampleModel.deal" Role="deal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="cid" />
+            </Principal>
+            <Dependent Role="deal">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="uid">
+          <End Type="koollaexampleModel.users" Role="users" Multiplicity="1" />
+          <End Type="koollaexampleModel.customer" Role="customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="koollaexampleModelStoreContainer" CdmEntityContainer="koollaexampleEntities">
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="koollaexampleModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customer">
+            <EntityTypeMapping TypeName="koollaexampleModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="product" ColumnName="product" />
+                <ScalarProperty Name="channel" ColumnName="channel" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="deal">
+            <EntityTypeMapping TypeName="koollaexampleModel.deal">
+              <MappingFragment StoreEntitySet="deal">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="did" ColumnName="did" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

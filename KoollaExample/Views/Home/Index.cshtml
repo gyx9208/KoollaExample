@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Koolla Example";
+}
+@section navbar{
+<li class="active">
+    @Html.ActionLink("主页", "Index","Home")
+</li>
+@if (Request.Cookies["UserId"]!=null) {
+    <li>
+        @Html.ActionLink("脉多","Index","SellMore")
+    </li>
+}
+}
+<div class="jumbotron">
+    <div class="container">
+        <h1>更聪明的销售方式！</h1>
+        <p>发现销售新天地，让销售变得更简单、快捷、便利，发现更聪明的销售方法！</p>
+        <p>@Html.ActionLink("现在就脉多 »", "Index", "SellMore", null, new { @class = "btn btn-primary btn-lg", role = "button" })</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>聪明管理人脉</h2>
+            <img src=""/>
+            <p>balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉
+                balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala
+            </p>
+            <p><a class="btn btn-default" href="/SellMore" role="button">View details »</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>群发邮件微信</h2>
+            <img src=""/>
+            <p>balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉
+                balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala
+            </p>
+            <p><a class="btn btn-default" href="/SellMore" role="button">View details »</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>图示销售业绩</h2>
+            <img src=""/>
+            <p>balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉
+                balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala巴拉巴拉balabala
+            </p>
+            <p><a class="btn btn-default" href="/SellMore" role="button">View details »</a></p>
+        </div>
+    </div>
+    
+</div>

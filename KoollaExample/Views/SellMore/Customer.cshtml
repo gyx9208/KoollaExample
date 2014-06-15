@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Customer";
+}
+@section head{
+    <link href="~/Content/kendoUI/style/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Content/kendoUI/style/kendo.metro.min.css" rel="stylesheet" />
+    <link href="~/Content/kendoUI/style/kendo.dataviz.min.css" rel="stylesheet" />
+    <link href="~/Content/kendoUI/style/kendo.dataviz.metro.min.css" rel="stylesheet" />
+    <script src="~/Content/kendoUI/js/kendo.all.min.js"></script>
+
+    <link href="~/Content/SellMore.css" rel="stylesheet" />
+    <script src="~/Scripts/sellmorecustomer.js"></script>
+}
+@section navbar{
+<li>
+    @Html.ActionLink("主页", "Index","Home")
+</li>
+<li>
+    @Html.ActionLink("脉多", "Index","SellMore")
+</li>
+<li class="active">@Html.ActionLink("人脉", "Customer","SellMore")</li>
+<li>@Html.ActionLink("群发", "GroupMail","SellMore")</li>
+<li>@Html.ActionLink("统计", "Dashboard","SellMore")</li>
+}
+
+<div class="Sellmore-Container">
+    <div class="head">
+        <h1>人脉</h1>
+        
+    </div>
+    <hr />
+    <div id="grid"></div>
+</div>

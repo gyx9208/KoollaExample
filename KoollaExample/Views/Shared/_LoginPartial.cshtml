@@ -1,0 +1,12 @@
+﻿@if (Request.Cookies["UserId"]!=null) {
+    <li>
+        <a href="/Account/Account">@Request.Cookies["User"].Value</a>
+    </li>
+    <li>
+        @Html.ActionLink("登出","Logout","Account")
+    </li>
+} else {
+    <li>
+        @Html.ActionLink("登入/注册", "Login", "Account")
+    </li>
+}
